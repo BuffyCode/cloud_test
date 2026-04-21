@@ -26,8 +26,8 @@ sudo npm install -g pm2
 4. Clone the repository and install dependencies
 ------------------------------------------------
 # Replace with your actual repository URL
-git clone https://github.com/vanshugalhotra/cloudtest.git
-cd cloudtest
+git clone https://github.com/BuffyCode/cloud_test.git
+cd cloud_test
 
 # Install npm packages
 npm install
