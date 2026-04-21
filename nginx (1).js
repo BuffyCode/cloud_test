@@ -1,7 +1,7 @@
 /*
 EC2 Deployment Steps
-for role
-#AmazonSSMManagedInstanceCore
+
+AmazonSSMManagedInstanceCore
 
 1. Update system packages
 -------------------------
@@ -26,8 +26,8 @@ sudo npm install -g pm2
 4. Clone the repository and install dependencies
 ------------------------------------------------
 # Replace with your actual repository URL
-git clone <YOUR_REPOSITORY_URL>
-cd <YOUR_PROJECT_DIRECTORY>
+git clone https://github.com/vanshugalhotra/cloudtest.git
+cd cloudtest
 
 # Install npm packages
 npm install
@@ -39,8 +39,9 @@ nano .env
 
 # Paste the following into the .env file:
 # --- .env content start ---
-MONGODB_URI=mongodb+srv://ustaadji:Version26%401228@versionevents.mju7wlv.mongodb.net/cloudtest?retryWrites=true&w=majority
-PORT=3000
+
+webmail
+
 # --- .env content end ---
 
 6. Start the server with PM2
@@ -60,13 +61,23 @@ server {
     listen 80;
     server_name _;
 
-    location / {
+    # Point to your static files (e.g., public, build, or dist folder)
+    root /home/ubuntu/cloudtest/public;
+    index index.html;
+
+    # Backend Proxy: Forward API requests to the PM2 Node server
+    location /api/ {
         proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
+    }
+
+    # SPA Routing: serve exact static file, or fallback to index.html
+    location / {
+        try_files $uri $uri/ /index.html;
     }
 }
 # --- nginx config end ---
