@@ -3,40 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Tasks</title>
-    <meta name="description" content="A minimal, premium todo app deployed on Azure Apps.">
-    <!-- Google Fonts: Inter -->
+    <title>Cloud Tasks | Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
         <header>
-            <h1>TODO LIST</h1>
-            <p class="subtitle">Vanshu Galhotra | Roll No: 205124107</p>
+            <h1>Cloud Tasks</h1>
+            <div class="user-badge">
+                <span class="user-name">Kumar Manglam</span>
+                <span class="roll-no">205124047</span>
+            </div>
         </header>
 
         <div class="todo-card">
             <form id="todo-form">
-                <input type="text" id="todo-input" placeholder="What needs to be done?" autocomplete="off" required />
-                <select id="todo-priority">
-                    <option value="Low">Low</option>
-                    <option value="Medium" selected>Medium</option>
-                    <option value="High">High</option>
-                </select>
-                <button type="submit" id="add-btn">Add</button>
+                <div class="input-group">
+                    <input type="text" id="todo-input" placeholder="What's on your mind?" autocomplete="off" required />
+                    <select id="todo-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Med</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <button type="submit" id="add-btn">
+                    <span>Add Task</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
             </form>
 
             <div class="error-msg" id="error-msg"></div>
 
+            <div class="list-header">
+                <span id="task-count">Your Tasks</span>
+            </div>
+            
             <ul id="todo-list">
-                <!-- Todos will be injected here via JS -->
-            </ul>
+                </ul>
         </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
