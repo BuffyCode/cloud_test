@@ -52,7 +52,7 @@ pm2 startup
 
 6.1 ------------------enable
 sudo chmod +x /home/ubuntu
-sudo chmod +x /home/ubuntu/cloudtest
+sudo chmod +x /home/ubuntu/cloud_test
 
 7. Configure Nginx
 ------------------
