@@ -1,5 +1,7 @@
 /*
 EC2 Deployment Steps
+for role
+#AmazonSSMManagedInstanceCore
 
 1. Update system packages
 -------------------------
